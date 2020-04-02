@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaAlmoxarifadoControlador">
+   <children>
+      <ToolBar layoutX="204.0" layoutY="146.0" prefHeight="40.0" prefWidth="500.0">
+         <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="39.0" />
+            <TextField fx:id="pesquisa" prefHeight="25.0" prefWidth="172.0" />
+            <Button fx:id="Buscar" mnemonicParsing="false" onAction="#Buscar" text="Pesquisar">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Remover" mnemonicParsing="false" onAction="#Remover" text="Remover">
+               <graphic>
+                  <ImageView fitHeight="21.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/rubbish-bin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Atualizar" mnemonicParsing="false" onAction="#Atualizar" text="Atualizar">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/refresh-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <ListView fx:id="items" layoutX="204.0" layoutY="186.0" prefHeight="322.0" prefWidth="500.0" />
+      <ToolBar layoutX="2.0" prefHeight="40.0" prefWidth="700.0">
+         <items>
+            <Button fx:id="adicionar" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="103.0" text="Adicionar">
+               <graphic>
+                  <ImageView fitHeight="25.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/add-objects.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="alterar" mnemonicParsing="false" onAction="#Alterar" prefHeight="40.0" prefWidth="103.0" text="Alterar">
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/couple-of-arrows-changing-places.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <Button fx:id="Voltar" layoutX="38.0" layoutY="442.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="40.0" prefWidth="60.0" text="Voltar" />
+      <Label fx:id="erro" layoutX="204.0" layoutY="120.0" prefHeight="17.0" prefWidth="83.0" textFill="RED" />
+   </children>
+</AnchorPane>

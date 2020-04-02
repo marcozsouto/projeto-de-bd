@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaInsercaoAlmoxarifadoControlador">
+   <children>
+      <TextField fx:id="nome" layoutX="80.0" layoutY="29.0" prefHeight="25.0" prefWidth="193.0" />
+      <Text layoutX="35.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="37.13671875" />
+      <Text layoutX="6.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:" wrappingWidth="70.0" />
+      <TextField fx:id="quantidade" layoutX="104.0" layoutY="74.0" prefHeight="25.0" prefWidth="53.0" />
+      <TextField fx:id="preco" layoutX="80.0" layoutY="122.0" prefHeight="25.0" prefWidth="62.0" />
+      <Text layoutX="23.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço:" wrappingWidth="53.13671875" />
+      <TextField fx:id="descricao" layoutX="80.0" layoutY="168.0" prefHeight="25.0" prefWidth="282.0" />
+      <Text layoutX="10.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição:" wrappingWidth="62.13671875" />
+      <Button fx:id="Cadastrar" layoutX="292.0" layoutY="230.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="70.0" text="Cadastrar" />
+      <Button fx:id="mais" layoutX="157.0" layoutY="74.0" mnemonicParsing="false" onAction="#incrementar" prefHeight="25.0" prefWidth="26.0" text="+" />
+      <Button fx:id="menos" layoutX="76.0" layoutY="74.0" mnemonicParsing="false" onAction="#decrementar" prefHeight="25.0" prefWidth="26.0" text="-" />
+      <Label fx:id="erro" layoutX="164.0" layoutY="242.0" prefHeight="17.0" prefWidth="114.0" textFill="RED" />
+   </children>
+</AnchorPane>

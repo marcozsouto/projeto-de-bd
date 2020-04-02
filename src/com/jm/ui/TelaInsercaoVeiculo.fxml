@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaInsercaoVeiculoControlador">
+   <children>
+      <ChoiceBox fx:id="tipo" layoutX="66.0" layoutY="125.0" prefHeight="25.0" prefWidth="143.0" />
+      <Text layoutX="14.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modelo:" wrappingWidth="53.13671875" />
+      <TextField fx:id="modelo" layoutX="67.0" layoutY="73.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="placa" layoutX="67.0" layoutY="20.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="14.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Placa:" wrappingWidth="53.13671875" />
+      <Button fx:id="botao" layoutX="216.0" layoutY="239.0" mnemonicParsing="false" onAction="#botao" prefHeight="34.0" prefWidth="71.0" text="Cadastrar" />
+      <Label fx:id="erro" layoutX="130.0" layoutY="248.0" prefHeight="17.0" prefWidth="83.0" textFill="RED" />
+   </children>
+</AnchorPane>

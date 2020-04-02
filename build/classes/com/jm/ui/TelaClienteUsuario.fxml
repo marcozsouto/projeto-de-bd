@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaClienteUsuarioControlador">
+   <children>
+      <Label fx:id="mensagem" layoutY="-3.0" prefHeight="35.0" prefWidth="284.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <ListView fx:id="servicos" layoutX="130.0" layoutY="118.0" prefHeight="282.0" prefWidth="470.0" />
+      <ToolBar layoutX="128.0" layoutY="78.0" prefHeight="40.0" prefWidth="480.0">
+         <items>
+            <Button fx:id="Atualizar" mnemonicParsing="false" onAction="#Atualizar" text="Atualizar">
+               <graphic>
+                  <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/refresh-button.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <Button fx:id="Voltar" layoutX="40.0" layoutY="335.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="40.0" prefWidth="60.0" text="Voltar" />
+   </children>
+</AnchorPane>

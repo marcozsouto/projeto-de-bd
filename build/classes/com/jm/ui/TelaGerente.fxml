@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaGerenteControlador">
+   <children>
+      <ToolBar prefHeight="61.0" prefWidth="700.0">
+         <items>
+            <Button fx:id="Funcionarios" mnemonicParsing="false" onAction="#clickFuncionario" prefHeight="40.0" prefWidth="134.0" text="Funcionarios">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/multiple-users-silhouette.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button fx:id="Almoxarifado" mnemonicParsing="false" onAction="#clickAlmoxarifado" prefHeight="40.0" prefWidth="134.0" text="Almoxarifado">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/trolley.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Veiculos" mnemonicParsing="false" onAction="#clickVeiculo" prefHeight="40.0" prefWidth="134.0" text="Veiculos">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/cargo-truck.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Clientes" mnemonicParsing="false" onAction="#clickCliente" prefHeight="40.0" prefWidth="134.0" text="Clientes">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/customer.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Servicos" mnemonicParsing="false" onAction="#clickServico" prefHeight="40.0" prefWidth="134.0" text="Serviços">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/logistics-delivery-truck-in-movement.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <Button fx:id="Voltar" layoutX="30.0" layoutY="436.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="35.0" prefWidth="60.0" text="Sair" />
+      <ToolBar layoutX="224.0" layoutY="131.0" prefHeight="40.0" prefWidth="476.0">
+         <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" wrappingWidth="67.0" />
+            <TextField fx:id="pesquisa" prefHeight="25.0" prefWidth="301.0" />
+            <Button fx:id="pesquisar" mnemonicParsing="false" onAction="#Buscar" text="Pesquisar">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <ListView fx:id="servicos" layoutX="224.0" layoutY="171.0" prefHeight="322.0" prefWidth="476.0" />
+      <Label fx:id="mensagem" layoutX="14.0" layoutY="69.0" prefHeight="35.0" prefWidth="290.0">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

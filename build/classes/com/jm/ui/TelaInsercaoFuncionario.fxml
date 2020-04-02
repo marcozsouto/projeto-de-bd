@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaInsercaoFuncionarioControlador">
+   <children>
+      <TextField fx:id="nome" layoutX="51.0" layoutY="14.0" prefHeight="25.0" prefWidth="290.0" />
+      <Text layoutX="6.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="37.13671875" />
+      <Text layoutX="6.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" wrappingWidth="37.13671875" />
+      <TextField fx:id="cpf" layoutX="51.0" layoutY="59.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="-2.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" CTPS:" wrappingWidth="37.13671875" />
+      <TextField fx:id="ctps" layoutX="51.0" layoutY="107.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="8.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" wrappingWidth="53.13671875" />
+      <TextField fx:id="rg" layoutX="51.0" layoutY="153.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="telefone" layoutX="61.0" layoutY="197.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="6.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RG:" wrappingWidth="37.13671875" />
+      <TextField fx:id="senha" layoutX="53.0" layoutY="238.0" prefHeight="25.0" prefWidth="150.0" />
+      <Text layoutX="8.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" wrappingWidth="53.13671875" />
+      <ChoiceBox fx:id="cargo" layoutX="53.0" layoutY="279.0" prefWidth="150.0" />
+      <Text layoutX="8.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cargo:" wrappingWidth="53.13671875" />
+      <TextField fx:id="salario" layoutX="53.0" layoutY="325.0" prefHeight="25.0" prefWidth="104.0" />
+      <Text layoutX="8.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salario:" wrappingWidth="53.13671875" />
+      <Text layoutX="8.0" layoutY="379.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereco" wrappingWidth="182.13671875">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="6.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rua:" wrappingWidth="37.13671875" />
+      <TextField fx:id="rua" layoutX="51.0" layoutY="400.0" prefHeight="25.0" prefWidth="290.0" />
+      <TextField fx:id="bairro" layoutX="54.0" layoutY="444.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="6.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bairro:" wrappingWidth="37.13671875" />
+      <Text layoutX="9.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complemento:" wrappingWidth="84.13671875" />
+      <TextField fx:id="complemento" layoutX="93.0" layoutY="566.0" prefHeight="25.0" prefWidth="250.0" />
+      <Text layoutX="7.0" layoutY="501.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEP:" wrappingWidth="37.13671875" />
+      <TextField fx:id="numero" layoutX="62.0" layoutY="528.0" prefHeight="25.0" prefWidth="53.0" />
+      <TextField fx:id="cep" layoutX="52.0" layoutY="484.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="9.0" layoutY="545.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número:" wrappingWidth="53.13671875" />
+      <Button fx:id="botao" layoutX="449.0" layoutY="599.0" mnemonicParsing="false" onAction="#botao" prefHeight="34.0" prefWidth="94.0">
+         <graphic>
+            <Label fx:id="label" />
+         </graphic>
+      </Button>
+      <Label fx:id="erro" layoutX="354.0" layoutY="608.0" prefHeight="17.0" prefWidth="84.0" textFill="RED" />
+   </children>
+</AnchorPane>

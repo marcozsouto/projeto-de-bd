@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="493.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaAtualizacaoClienteControlador">
+   <children>
+      <ToolBar layoutX="325.0" layoutY="1.0" prefHeight="40.0" prefWidth="375.0">
+         <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" wrappingWidth="58.0" />
+            <TextField fx:id="pesquisa" prefHeight="25.0" prefWidth="132.0" />
+            <Button fx:id="Buscar" mnemonicParsing="false" onAction="#Buscar" text="Pesquisar">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Alterar" mnemonicParsing="false" onAction="#Alterar" prefHeight="25.0" prefWidth="75.0" text="Alterar">
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/couple-of-arrows-changing-places.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <ListView fx:id="clientes" layoutX="326.0" layoutY="41.0" prefHeight="249.0" prefWidth="375.0" />
+      <TextField fx:id="nome" layoutX="50.0" layoutY="17.0" prefHeight="25.0" prefWidth="250.0" />
+      <Text layoutX="9.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" wrappingWidth="37.13671875" />
+      <Text layoutX="8.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" wrappingWidth="64.0" />
+      <TextField fx:id="cpf_cnpj" layoutX="66.0" layoutY="62.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="28.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Senha:" wrappingWidth="37.13671875" />
+      <TextField fx:id="telefone" layoutX="66.0" layoutY="110.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="9.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Telefone:" wrappingWidth="53.13671875" />
+      <TextField fx:id="email" layoutX="66.0" layoutY="156.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="senha" layoutX="76.0" layoutY="200.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="21.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" wrappingWidth="37.13671875" />
+      <Text layoutX="13.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereco" wrappingWidth="182.13671875">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="17.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rua:" wrappingWidth="37.13671875" />
+      <TextField fx:id="rua" layoutX="62.0" layoutY="281.0" prefHeight="25.0" prefWidth="237.0" />
+      <TextField fx:id="bairro" layoutX="65.0" layoutY="325.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="17.0" layoutY="342.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bairro:" wrappingWidth="37.13671875" />
+      <Text layoutX="20.0" layoutY="464.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complemento:" wrappingWidth="84.13671875" />
+      <TextField fx:id="complemento" layoutX="104.0" layoutY="447.0" prefHeight="25.0" prefWidth="250.0" />
+      <Text layoutX="18.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEP:" wrappingWidth="37.13671875" />
+      <TextField fx:id="numero" layoutX="73.0" layoutY="409.0" prefHeight="25.0" prefWidth="53.0" />
+      <TextField fx:id="cep" layoutX="63.0" layoutY="365.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="20.0" layoutY="426.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número:" wrappingWidth="53.13671875" />
+      <Button fx:id="botao" layoutX="582.0" layoutY="435.0" mnemonicParsing="false" onAction="#Botao" prefHeight="32.0" prefWidth="64.0" text="Atualizar" />
+      <Label fx:id="erro" layoutX="472.0" layoutY="443.0" prefHeight="17.0" prefWidth="105.0" textFill="RED" />
+   </children>
+</AnchorPane>

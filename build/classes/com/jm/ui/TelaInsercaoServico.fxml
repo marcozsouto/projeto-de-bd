@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaInsercaoServicoControlador">
+   <children>
+      <ListView fx:id="clientes" layoutX="1.0" layoutY="40.0" prefHeight="100.0" prefWidth="350.0" />
+      <ToolBar prefHeight="40.0" prefWidth="350.0">
+         <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" wrappingWidth="63.0" />
+            <TextField fx:id="pesquisac" prefHeight="25.0" prefWidth="178.0" />
+            <Button fx:id="BuscarC" mnemonicParsing="false" onAction="#BuscarC" text="Pesquisar">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <ListView fx:id="veiculos" layoutX="351.0" layoutY="40.0" prefHeight="100.0" prefWidth="350.0" />
+      <ToolBar layoutX="351.0" prefHeight="40.0" prefWidth="350.0">
+         <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Placa:" wrappingWidth="34.0" />
+            <TextField fx:id="pesquisav" prefHeight="25.0" prefWidth="209.0" />
+            <Button fx:id="BuscaV" mnemonicParsing="false" onAction="#BuscarV" text="Pesquisar">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <ToolBar layoutY="140.0" prefHeight="40.0" prefWidth="700.0">
+         <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" wrappingWidth="28.0" />
+            <TextField fx:id="pesquisaf" prefHeight="25.0" prefWidth="270.0" />
+            <Button fx:id="BuscarF" mnemonicParsing="false" onAction="#BuscarF" text="Pesquisar">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <ListView fx:id="funcionarios" layoutX="1.0" layoutY="180.0" prefHeight="100.0" prefWidth="700.0" />
+      <Text layoutX="25.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número:" wrappingWidth="53.13671875" />
+      <TextField fx:id="cep" layoutX="68.0" layoutY="511.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="numero" layoutX="78.0" layoutY="555.0" prefHeight="25.0" prefWidth="53.0" />
+      <Text layoutX="23.0" layoutY="528.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEP:" wrappingWidth="37.13671875" />
+      <TextField fx:id="complemento" layoutX="106.0" layoutY="606.0" prefHeight="25.0" prefWidth="250.0" />
+      <Text layoutX="23.0" layoutY="623.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complemento:" wrappingWidth="84.13671875" />
+      <Text layoutX="23.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bairro:" wrappingWidth="37.13671875" />
+      <TextField fx:id="bairro" layoutX="71.0" layoutY="466.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="rua" layoutX="68.0" layoutY="422.0" prefHeight="25.0" prefWidth="290.0" />
+      <Text layoutX="23.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rua:" wrappingWidth="37.13671875" />
+      <Text layoutX="25.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereco" wrappingWidth="182.13671875">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="23.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preço:" wrappingWidth="37.13671875" />
+      <TextField fx:id="preco" layoutX="63.0" layoutY="296.0" prefHeight="25.0" prefWidth="100.0" />
+      <Text layoutX="23.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" wrappingWidth="37.13671875" />
+      <ChoiceBox fx:id="status" layoutX="63.0" layoutY="341.0" prefWidth="150.0" />
+      <Button fx:id="cadastrar" layoutX="594.0" layoutY="613.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="34.0" prefWidth="76.0" text="Cadastrar" />
+      <Label fx:id="erro" layoutX="498.0" layoutY="622.0" prefHeight="17.0" prefWidth="85.0" textFill="RED" />
+   </children>
+</AnchorPane>

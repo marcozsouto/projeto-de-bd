@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="352.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaAtualizacaoVeiculoControlador">
+   <children>
+      <ToolBar layoutX="255.0" layoutY="7.0" prefHeight="40.0" prefWidth="345.0">
+         <items>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Placa:" wrappingWidth="34.0" />
+            <TextField fx:id="pesquisa" prefHeight="25.0" prefWidth="119.0" />
+            <Button fx:id="Buscar" mnemonicParsing="false" onAction="#Buscar" text="Pesquisar">
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/search.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Alterar" mnemonicParsing="false" onAction="#Alterar" prefHeight="25.0" prefWidth="75.0" text="Alterar">
+               <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/couple-of-arrows-changing-places.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </items>
+      </ToolBar>
+      <ListView fx:id="veiculos" layoutX="255.0" layoutY="47.0" prefHeight="205.0" prefWidth="345.0" />
+      <Text layoutX="23.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Placa:" wrappingWidth="53.13671875" />
+      <TextField fx:id="placa" layoutX="76.0" layoutY="14.0" prefHeight="25.0" prefWidth="135.0" />
+      <TextField fx:id="modelo" layoutX="76.0" layoutY="67.0" prefHeight="25.0" prefWidth="135.0" />
+      <Text layoutX="23.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modelo:" wrappingWidth="53.13671875" />
+      <ChoiceBox fx:id="tipo" layoutX="75.0" layoutY="119.0" prefHeight="25.0" prefWidth="143.0" />
+      <Button fx:id="Atualizar" layoutX="500.0" layoutY="277.0" mnemonicParsing="false" onAction="#Atualizar" prefHeight="40.0" prefWidth="67.0" text="Atualizar" />
+      <Text layoutX="23.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo:" wrappingWidth="53.13671875" />
+      <Label fx:id="erro" layoutX="386.0" layoutY="289.0" prefHeight="17.0" prefWidth="103.0" textFill="RED" />
+   </children>
+</AnchorPane>
