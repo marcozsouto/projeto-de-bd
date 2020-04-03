@@ -44,6 +44,8 @@ public class TelaLoginControlador implements Initializable {
     @FXML
     private Button Entrar;
     @FXML
+    private Button Sair;
+    @FXML
     private TextField login;
     @FXML
     private PasswordField senha;
@@ -60,19 +62,24 @@ public class TelaLoginControlador implements Initializable {
             if(Fachada.getSingleton().RealizarLoginFuncionarioValidacao(login.getText(),senha.getText())!=null){
                 loginFuncionario(Fachada.getSingleton().RealizarLoginFuncionarioValidacao(login.getText(),senha.getText()));
             }else{
-            invalido.setText("Nome de usuÃ¡rio ou senha invÃ¡lida!");
+            invalido.setText("Erro: Usuário não cadastrado ou senha incorreta.");
             }
         }
         if(opcao.equals("Cliente")){
             if(Fachada.getSingleton().RealizarLoginClienteValidacao(login.getText(),senha.getText())!=null){
                 loginCliente(Fachada.getSingleton().RealizarLoginClienteValidacao(login.getText(),senha.getText()));
             }else{
-            invalido.setText("Nome de usuÃ¡rio ou senha invÃ¡lida!");
+            invalido.setText("Erro: Usuário não cadastrado ou senha incorreta.");
             }
             
         }
         
      
+    }
+    
+    @FXML
+    void BotaoSair(ActionEvent event) {
+    	System.exit(0);
     }
     
     @Override
