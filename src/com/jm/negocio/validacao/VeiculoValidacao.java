@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import com.jm.negocio.ControleVeiculo;
 import com.jm.negocio.fachada.Fachada;
-import com.jm.negocio.modelo.Almoxarifado;
 import com.jm.negocio.modelo.Funcionario;
 import com.jm.negocio.modelo.Veiculo;
 

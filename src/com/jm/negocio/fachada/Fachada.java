@@ -10,8 +10,6 @@ import com.jm.negocio.excecoes.FuncionarioExistenteException;
 import com.jm.negocio.excecoes.NomeInvalidoException;
 import com.jm.negocio.excecoes.RgInvalidoException;
 import com.jm.negocio.excecoes.TelefoneInvalidoException;
-import com.jm.negocio.modelo.Almoxarifado;
-import com.jm.negocio.modelo.AuxiliarAlmoxarifado;
 import com.jm.negocio.modelo.Cliente;
 import com.jm.negocio.modelo.Funcionario;
 import com.jm.negocio.modelo.Servico;
@@ -19,7 +17,6 @@ import com.jm.negocio.modelo.Veiculo;
 import com.jm.negocio.validacao.*;
 
 public class Fachada {
-	private AlmoxarifadoValidacao almoxarifado;
 	private ClienteValidacao cliente;
 	private FuncionarioValidacao funcionario;
 	private ServicoValidacao servico;
@@ -37,7 +34,6 @@ public class Fachada {
 	}
 	
 	private Fachada () {
-		almoxarifado = new AlmoxarifadoValidacao();
 		cliente = new ClienteValidacao();
 		funcionario = new FuncionarioValidacao();
 		servico = new ServicoValidacao();
@@ -111,22 +107,7 @@ public class Fachada {
             this.cliente.AtualizarClienteValidacao(antigo, novo);
         }
         
-        public ArrayList<Almoxarifado> MostrarItemValidacao() throws SQLException{
-            return this.almoxarifado.MostrarItemValidacao();
-        }
-        
-        public void AtualizarItemValidacao(Almoxarifado antigo, Almoxarifado novo) throws SQLException {
-            this.almoxarifado.AtualizarItemValidacao(antigo, novo);
-        }
-        
-        public void CadastroItemValidacao(Almoxarifado item) throws SQLException {
-            this.almoxarifado.CadastroItemValidacao(item);
-        }
-        
-        public void RemoverItemValidacao(String nome) throws SQLException{
-            this.almoxarifado.RemoverItemValidacao(nome);
-        }
-        
+   
         public void RemoverServicoValidacao(Servico servico) throws SQLException {
             this.servico.RemoverServicoValidacao(servico);
         }

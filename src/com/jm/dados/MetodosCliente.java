@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.jm.dados.interfaces.IMetodosCliente;
-import com.jm.negocio.modelo.Almoxarifado;
 import com.jm.negocio.modelo.Cliente;
 
 public class MetodosCliente implements IMetodosCliente{
