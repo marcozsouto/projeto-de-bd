@@ -5,7 +5,9 @@
  */
 package com.jm.ui.controladores;
 
+import com.jm.negocio.excecoes.ArrayVazioException;
 import com.jm.negocio.fachada.Fachada;
+import com.jm.negocio.modelo.Funcionario;
 import com.jm.negocio.modelo.Servico;
 import static com.jm.ui.Main.stage;
 import java.awt.event.KeyEvent;
@@ -38,7 +40,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -73,16 +78,31 @@ public class TelaGerenteControlador implements Initializable {
     @FXML
     private TextField pesquisa;
     
-    @FXML
-    private ListView<Servico> servicos;
+    //@FXML private ListView<Servico> servicos; 
+    
+    @FXML private TableView<Funcionario> table = new TableView<>();
+    
+    @FXML private TableColumn<Funcionario, String> nomeCol;
+    
+    @FXML private TableColumn<Funcionario, Integer> idCol;
+    
+    @FXML private TableColumn<Funcionario, String> cpfCol;
+    
+    @FXML private TableColumn<Funcionario, String> cargoCol;
+    
+    @FXML private TableColumn<Funcionario, String> telefoneCol;
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
             
         mensagem.setText("Bem-vindo, "+Fachada.getSingleton().funcionarioLogado().getNome());
         try {
-            listarServicos();
-        } catch (SQLException ex) {
+            //listarFuncionarios();
+            createTableViwer();
+            
+        } catch (SQLException | ArrayVazioException ex) {
             Logger.getLogger(TelaGerenteControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
@@ -134,10 +154,11 @@ public class TelaGerenteControlador implements Initializable {
         stage.show();
     }
     
-    public void listarServicos() throws SQLException{
-        ObservableList lista = FXCollections.observableArrayList(Fachada.getSingleton().MostrarServicoIncompleto());
-        servicos.setItems(lista);
-    }
+    public void listarFuncionarios() throws SQLException, ArrayVazioException{
+        ObservableList lista = FXCollections.observableArrayList(Fachada.getSingleton().MostrarFuncionarioValidacao());
+        //servicos.setItems(lista);
+    }    
+    
     @FXML
     void Voltar(ActionEvent event) throws SQLException, IOException {
         URL url = new File("./src/com/jm/ui/TelaLogin.fxml").toURL();
@@ -149,18 +170,50 @@ public class TelaGerenteControlador implements Initializable {
     }
 
     @FXML
-    void Buscar(ActionEvent event) throws SQLException {
-        ArrayList<Servico> todos = Fachada.getSingleton().MostrarServicoIncompleto();
-        ArrayList<Servico> novos = new ArrayList<>();
+    void Buscar(ActionEvent event) throws SQLException, ArrayVazioException {
+        ArrayList<Funcionario> todos = Fachada.getSingleton().MostrarFuncionarioValidacao();
+        ArrayList<Funcionario> novos = new ArrayList<>();
         if(pesquisa.getText().isEmpty()==true){
-            listarServicos();
+            listarFuncionarios();
+            
         }
         for(int i=0;i<todos.size();i++){
-            if(todos.get(i).getCliente().getCpf_cnpj().startsWith(pesquisa.getText())==true){
+            if(todos.get(i).getCpf().startsWith(pesquisa.getText())==true){
                 novos.add(todos.get(i));
             }
         }
-        ObservableList lista = FXCollections.observableArrayList(novos);
-        servicos.setItems(lista);
+        ObservableList<Funcionario> lista = FXCollections.observableArrayList(novos);
+        //servicos.setItems(lista);
+        table.setItems(lista);
+        
+    }
+    
+    public ObservableList<Funcionario> getFuncionarios() throws SQLException, ArrayVazioException{
+    	ObservableList<Funcionario> funcionarios = FXCollections.observableArrayList(Fachada.getSingleton().MostrarFuncionarioValidacao());;
+  
+		return funcionarios;
+    	
+    }
+    
+    public void createTableViwer() throws SQLException, ArrayVazioException {
+    	
+    	//nomeCol = new TableColumn<>("NOME");
+    	nomeCol.setCellValueFactory(new PropertyValueFactory<>("nome"));
+    	
+    	// = new TableColumn<>("ID");
+    	idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	
+    	//cpfCol = new TableColumn<>("CPF");
+    	cpfCol.setCellValueFactory(new PropertyValueFactory<>("cpf"));
+    	
+    	//cargoCol = new TableColumn<>("CARGO");
+    	cargoCol.setCellValueFactory(new PropertyValueFactory<>("cargo"));
+    	
+    	//telefoneCol = new TableColumn<>("TELEFONE");
+    	telefoneCol.setCellValueFactory(new PropertyValueFactory<>("telefone"));
+    	
+    	table.setItems(getFuncionarios());
+    	//table.getColumns().addAll(nomeCol, idCol, cpfCol,  cargoCol, telefoneCol);
+    	
     }
 }
