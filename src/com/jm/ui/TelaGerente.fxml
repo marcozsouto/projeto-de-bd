@@ -12,11 +12,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="396.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaGerenteControlador">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="396.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaGerenteControlador">
    <children>
       <ToolBar layoutX="14.0" layoutY="66.0" prefHeight="316.0" prefWidth="146.0" />
-      <Button fx:id="Voltar" layoutX="20.0" layoutY="332.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="35.0" prefWidth="134.0" text="Sair" />
-      <ToolBar layoutX="167.0" layoutY="66.0" prefHeight="40.0" prefWidth="809.0">
+      <Button fx:id="Voltar" layoutX="3.0" layoutY="332.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="35.0" prefWidth="153.0" text="Sair" />
+      <ToolBar layoutX="167.0" layoutY="66.0" prefHeight="43.0" prefWidth="828.0">
          <items>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" wrappingWidth="61.0" />
             <TextField fx:id="pesquisa" prefHeight="25.0" prefWidth="582.0" />
@@ -36,37 +36,37 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Button fx:id="Funcionarios" layoutX="20.0" layoutY="77.0" mnemonicParsing="false" onAction="#clickFuncionario" prefHeight="40.0" prefWidth="134.0" text="Funcionarios" />
-      <Button fx:id="Veiculos" layoutX="20.0" layoutY="128.0" mnemonicParsing="false" onAction="#clickVeiculo" prefHeight="40.0" prefWidth="134.0" text="Veiculos" />
-      <Button fx:id="Clientes" layoutX="20.0" layoutY="177.0" mnemonicParsing="false" onAction="#clickCliente" prefHeight="40.0" prefWidth="134.0" text="Clientes" />
-      <Button fx:id="Servicos" layoutX="20.0" layoutY="227.0" mnemonicParsing="false" onAction="#clickServico" prefHeight="40.0" prefWidth="134.0" text="Serviços" />
-      <Button fx:id="Almoxarifado" layoutX="20.0" layoutY="278.0" mnemonicParsing="false" onAction="#clickAlmoxarifado" prefHeight="40.0" prefWidth="134.0" text="Almoxarifado" />
-      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="28.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="Funcionários" layoutX="7.0" layoutY="77.0" mnemonicParsing="false" onAction="#clickFuncionario" prefHeight="40.0" prefWidth="153.0" text="Funcionarios" />
+      <Button fx:id="Veículos" layoutX="6.0" layoutY="128.0" mnemonicParsing="false" onAction="#clickVeiculo" prefHeight="40.0" prefWidth="153.0" text="Veiculos" />
+      <Button fx:id="Clientes" layoutX="4.0" layoutY="177.0" mnemonicParsing="false" onAction="#clickCliente" prefHeight="40.0" prefWidth="153.0" text="Clientes" />
+      <Button fx:id="Serviços" layoutX="4.0" layoutY="227.0" mnemonicParsing="false" onAction="#clickServico" prefHeight="40.0" prefWidth="153.0" text="Serviços" />
+      <Button fx:id="Almoxarifado" layoutX="3.0" layoutY="278.0" mnemonicParsing="false" onAction="#clickAlmoxarifado" prefHeight="40.0" prefWidth="153.0" text="Almoxarifado" />
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="17.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/cargo-truck.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="28.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="15.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/multiple-users-silhouette.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="28.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="10.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/logistics-delivery-truck-in-movement.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="28.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="13.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/multiple-users-silhouette.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="28.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="8.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@icons/trolley.png" />
          </image>
       </ImageView>
-      <TableView id="table" fx:id="table" layoutX="166.0" layoutY="109.0" prefHeight="272.0" prefWidth="809.0">
+      <TableView id="table" fx:id="table" layoutX="166.0" layoutY="109.0" prefHeight="272.0" prefWidth="828.0">
         <columns>
           <TableColumn id="idCol" fx:id="idCol" prefWidth="33.0" text="ID" />
           <TableColumn id="nomeCol" fx:id="nomeCol" prefWidth="257.99998474121094" text="NOME" />
