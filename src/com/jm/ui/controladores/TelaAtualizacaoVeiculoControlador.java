@@ -5,6 +5,7 @@
  */
 package com.jm.ui.controladores;
 
+import com.jm.negocio.excecoes.ArrayVazioException;
 import com.jm.negocio.fachada.Fachada;
 import com.jm.negocio.modelo.Veiculo;
 import java.net.URL;
@@ -22,7 +23,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 public class TelaAtualizacaoVeiculoControlador implements Initializable {
@@ -56,12 +60,23 @@ public class TelaAtualizacaoVeiculoControlador implements Initializable {
     
     @FXML
     private Label erro;
+    
+    @FXML private TableView<Veiculo> table = new TableView<>();
+    
+    @FXML private TableColumn<Veiculo, Integer> id;
+    
+    @FXML private TableColumn<Veiculo, String> placacol;
+    
+    @FXML private TableColumn<Veiculo, String> modelocol;
+    
+    @FXML private TableColumn<Veiculo, String> tipocol;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            listarVeiculos();
-        } catch (SQLException ex) {
+            //listarVeiculos();
+        	createTableViwer();
+        } catch (SQLException | ArrayVazioException ex) {
             Logger.getLogger(TelaAtualizacaoVeiculoControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -71,21 +86,21 @@ public class TelaAtualizacaoVeiculoControlador implements Initializable {
         ArrayList<Veiculo> todos = Fachada.getSingleton().MostrarVeiculoValidacao();
         ArrayList<Veiculo> novos = new ArrayList<>();
         if(pesquisa.getText().isEmpty()==true){
-            ObservableList lista3 = FXCollections.observableArrayList(Fachada.getSingleton().MostrarVeiculoValidacao());
-            veiculos.setItems(lista3);
+            ObservableList <Veiculo> lista3 = FXCollections.observableArrayList(Fachada.getSingleton().MostrarVeiculoValidacao());
+            table.setItems(lista3);
         }
         for(int i=0;i<todos.size();i++){
             if(todos.get(i).getPlaca().startsWith(pesquisa.getText())==true){
                 novos.add(todos.get(i));
             }
         }
-        ObservableList lista = FXCollections.observableArrayList(novos);
-        veiculos.setItems(lista);
+        ObservableList <Veiculo>lista = FXCollections.observableArrayList(novos);
+        table.setItems(lista);
     }
     
     @FXML
     void Alterar(ActionEvent event) {
-        selecionado = veiculos.getSelectionModel().selectedItemProperty().getValue();
+        selecionado = table.getSelectionModel().selectedItemProperty().getValue();
         modelo.setText(selecionado.getModelo());
         placa.setText(selecionado.getPlaca());
         inicializarTipos();
@@ -111,7 +126,7 @@ public class TelaAtualizacaoVeiculoControlador implements Initializable {
 
     @FXML
     void Atualizar(ActionEvent event) throws SQLException {
-        selecionado = veiculos.getSelectionModel().selectedItemProperty().getValue();
+        selecionado = table.getSelectionModel().selectedItemProperty().getValue();
         int i = 0;
         if(selecionado == null){
             erro.setText("Opção Invalida!");
@@ -164,7 +179,28 @@ public class TelaAtualizacaoVeiculoControlador implements Initializable {
     
     public void listarVeiculos() throws SQLException{
     ObservableList lista = FXCollections.observableArrayList(Fachada.getSingleton().MostrarVeiculoValidacao());
-    veiculos.setItems(lista);
+    table.setItems(lista);
     }
     
+    public ObservableList<Veiculo> getVeiculos() throws SQLException, ArrayVazioException{
+    	ObservableList<Veiculo> veiculos = FXCollections.observableArrayList(Fachada.getSingleton().MostrarVeiculoValidacao());;
+  
+		return veiculos;
+    	
+    }
+    
+    public void createTableViwer() throws SQLException, ArrayVazioException {
+ 
+    	
+    	id.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	
+    	placacol.setCellValueFactory(new PropertyValueFactory<>("placa"));
+    
+    	modelocol.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+    	
+    	tipocol.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+    	
+    	table.setItems(getVeiculos());
+    	
+    }
 }

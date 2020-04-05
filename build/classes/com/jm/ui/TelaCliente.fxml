@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaClienteControlador">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jm.ui.controladores.TelaClienteControlador">
    <children>
-      <Button fx:id="Voltar" layoutX="37.0" layoutY="433.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="40.0" prefWidth="60.0" text="Voltar" />
       <ToolBar layoutY="5.0" prefHeight="40.0" prefWidth="700.0">
          <items>
-            <Button fx:id="adicionar" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="103.0" text="Adicionar">
+            <Button fx:id="adicionar" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="40.0" prefWidth="121.0" text="Adicionar">
                <graphic>
                   <ImageView fitHeight="41.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -22,7 +24,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="alterar" mnemonicParsing="false" onAction="#Alterar" prefHeight="40.0" prefWidth="103.0" text="Alterar">
+            <Button fx:id="alterar" mnemonicParsing="false" onAction="#Alterar" prefHeight="40.0" prefWidth="132.0" text="Alterar">
                <graphic>
                   <ImageView fitHeight="26.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -33,9 +35,9 @@
             </Button>
          </items>
       </ToolBar>
-      <ToolBar layoutX="200.0" layoutY="141.0" prefHeight="40.0" prefWidth="500.0">
+      <ToolBar layoutY="121.0" prefHeight="40.0" prefWidth="700.0">
          <items>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" wrappingWidth="59.0" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CPF/CNPJ:" wrappingWidth="180.0" />
             <TextField fx:id="pesquisa" prefHeight="25.0" prefWidth="145.0" />
             <Button fx:id="Buscar" mnemonicParsing="false" onAction="#Buscar" text="Pesquisar">
                <graphic>
@@ -66,7 +68,15 @@
             </Button>
          </items>
       </ToolBar>
-      <ListView fx:id="clientes" layoutX="200.0" layoutY="181.0" prefHeight="322.0" prefWidth="500.0" />
       <Label fx:id="erro" layoutX="200.0" layoutY="124.0" prefHeight="17.0" prefWidth="117.0" textFill="RED" />
+      <TableView layoutX="102.0" layoutY="197.0" prefHeight="297.0" prefWidth="591.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="SERVIÇO" />
+          <TableColumn prefWidth="228.0" text="MOTORISTA" />
+            <TableColumn prefWidth="146.0" text="VEICULOS" />
+            <TableColumn prefWidth="141.0" />
+        </columns>
+      </TableView>
+      <Button fx:id="Voltar" layoutY="446.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="40.0" prefWidth="96.0" text="Voltar" />
    </children>
 </AnchorPane>

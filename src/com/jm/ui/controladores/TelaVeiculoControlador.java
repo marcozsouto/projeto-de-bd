@@ -1,6 +1,8 @@
 package com.jm.ui.controladores;
 
+import com.jm.negocio.excecoes.ArrayVazioException;
 import com.jm.negocio.fachada.Fachada;
+import com.jm.negocio.modelo.Funcionario;
 import com.jm.negocio.modelo.Servico;
 import com.jm.negocio.modelo.Veiculo;
 import static com.jm.ui.Main.stage;
@@ -23,7 +25,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -44,8 +49,8 @@ public class TelaVeiculoControlador implements Initializable {
     @FXML
     private Button Remover;
 
-    @FXML
-    private ListView<Veiculo> veiculos;
+    //@FXML
+    //private ListView<Veiculo> veiculos;
 
     @FXML
     private Button pesquisar;
@@ -57,39 +62,53 @@ public class TelaVeiculoControlador implements Initializable {
     private Button alterar;
     
     private Veiculo selecionado;
+    
+    @FXML private TableView<Veiculo> table = new TableView<>();
+    
+    @FXML private TableColumn<Veiculo, Integer> id;
+    
+    @FXML private TableColumn<Veiculo, String> placa;
+    
+    @FXML private TableColumn<Veiculo, String> modelo;
+    
+    @FXML private TableColumn<Veiculo, String> tipo;
+    
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            erro.setText("");
-            listarVeiculos();
-        } catch (SQLException ex) {
+            //erro.setText("");
+            createTableViwer();
+            //listarVeiculos();
+        } catch (SQLException | ArrayVazioException ex) {
             Logger.getLogger(TelaVeiculoControlador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    
     
     public void listarVeiculos() throws SQLException{
     ObservableList lista = FXCollections.observableArrayList(Fachada.getSingleton().MostrarVeiculoValidacao());
-    veiculos.setItems(lista);
+    //veiculos.setItems(lista);
     }
     
     @FXML
-    void Remover(ActionEvent event) throws SQLException {
-        selecionado = veiculos.getSelectionModel().getSelectedItem();
+    void Remover(ActionEvent event) throws SQLException, ArrayVazioException {
+        selecionado = table.getSelectionModel().getSelectedItem();
         if(selecionado != null){
             Fachada.getSingleton().RemoverVeiculoValidacao(selecionado);
-            listarVeiculos();
+            //listarVeiculos();
+            createTableViwer();
             erro.setText("");
         }else{
-            erro.setText("Opção Invalida!");
+            erro.setText("Opção Inválida!");
         }
     }
 
     @FXML
-    void Atualizar(ActionEvent event) throws SQLException {
-        listarVeiculos();
-        erro.setText("");
+    void Atualizar(ActionEvent event) throws SQLException, ArrayVazioException {
+        //listarVeiculos();
+        //erro.setText("");
+    	createTableViwer();
     }
 
     @FXML
@@ -104,6 +123,7 @@ public class TelaVeiculoControlador implements Initializable {
             stagev.setScene(scene);
             stagev.setResizable(false);
             stagev.show();
+        
     }
 
     @FXML
@@ -144,8 +164,30 @@ public class TelaVeiculoControlador implements Initializable {
                 novos.add(todos.get(i));
             }
         }
-        ObservableList lista = FXCollections.observableArrayList(novos);
-        veiculos.setItems(lista);
+        ObservableList <Veiculo> lista = FXCollections.observableArrayList(novos);
+        table.setItems(lista);
+    }
+    
+    public ObservableList<Veiculo> getVeiculos() throws SQLException, ArrayVazioException{
+    	ObservableList<Veiculo> veiculos = FXCollections.observableArrayList(Fachada.getSingleton().MostrarVeiculoValidacao());;
+  
+		return veiculos;
+    	
+    }
+    
+    public void createTableViwer() throws SQLException, ArrayVazioException {
+ 
+    	
+    	id.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	
+    	placa.setCellValueFactory(new PropertyValueFactory<>("placa"));
+    
+    	modelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+    	
+    	tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+    	
+    	table.setItems(getVeiculos());
+    	
     }
     
 }

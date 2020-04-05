@@ -56,11 +56,11 @@ public class TelaInsercaoVeiculoControlador implements Initializable {
     void botao(ActionEvent event) throws SQLException {
         int i=0;
         if(modelo.getText().isEmpty() == true || modelo.getText() == null ){
-            erro.setText("Opção Invalida!");
+            erro.setText("Opção Inválida!");
             i++;
         }
         if(placa.getText().isEmpty() == true || placa.getText() == null ){
-            erro.setText("Opção Invalida!");
+            erro.setText("Opção Inválida!");
             i++;
         }
         if(i==0){

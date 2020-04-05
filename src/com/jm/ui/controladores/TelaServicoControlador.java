@@ -1,6 +1,9 @@
 package com.jm.ui.controladores;
 
+import com.jm.negocio.excecoes.ArrayVazioException;
 import com.jm.negocio.fachada.Fachada;
+import com.jm.negocio.modelo.Cliente;
+import com.jm.negocio.modelo.Funcionario;
 import com.jm.negocio.modelo.Servico;
 import com.jm.negocio.modelo.Veiculo;
 import static com.jm.ui.Main.stage;
@@ -23,7 +26,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 
@@ -60,10 +66,35 @@ public class TelaServicoControlador implements Initializable {
     private Servico selecionado;
     
     
+    @FXML private TableView<Servico> table = new TableView<>();
+    
+    @FXML private TableColumn<Servico, String> cliente;
+    
+    @FXML private TableColumn<Servico, Integer> id;
+    
+    @FXML private TableColumn<Servico, String> veiculo;
+    
+    @FXML private TableColumn<Servico, String> funcionario;
+    
+    @FXML private TableColumn<Servico, Integer> preco;
+    
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            //erro.setText("");
+            //listarServicos();
+        	createTableViwer();
+        	
+        } catch (SQLException | ArrayVazioException ex) {
+            Logger.getLogger(TelaServicoControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }  
     public void listarServicos() throws SQLException{
     ObservableList lista = FXCollections.observableArrayList(Fachada.getSingleton().MostrarServicoValidacao());
     servicos.setItems(lista);
     }
+    
     @FXML
     void Cadastrar(ActionEvent event) throws SQLException, MalformedURLException, IOException {
         erro.setText("");
@@ -107,15 +138,7 @@ public class TelaServicoControlador implements Initializable {
         erro.setText("");
         listarServicos();
     }
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        try {
-            erro.setText("");
-            listarServicos();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaServicoControlador.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }    
+      
     @FXML
     void Voltar(ActionEvent event) throws SQLException, MalformedURLException, IOException {
         URL url = new File("./src/com/jm/ui/TelaGerente.fxml").toURL();
@@ -141,6 +164,30 @@ public class TelaServicoControlador implements Initializable {
         }
         ObservableList lista = FXCollections.observableArrayList(novos);
         servicos.setItems(lista);
+    }
+    
+    
+    public ObservableList<Servico> getServicos() throws SQLException, ArrayVazioException{
+    	ObservableList<Servico> servicos = FXCollections.observableArrayList(Fachada.getSingleton().MostrarServicoValidacao());;
+  
+		return servicos;
+    	
+    }
+    
+    	public void createTableViwer() throws SQLException, ArrayVazioException {
+    	
+    	cliente.setCellValueFactory(new PropertyValueFactory<>("cliente"));
+    	
+    	id.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	
+    	veiculo.setCellValueFactory(new PropertyValueFactory<>("veiculo"));
+    	
+    	funcionario.setCellValueFactory(new PropertyValueFactory<>("funcionario"));
+    	
+    	preco.setCellValueFactory(new PropertyValueFactory<>("preco"));
+    	
+    	table.setItems(getServicos());
+    	
     }
         
 }

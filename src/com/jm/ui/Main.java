@@ -25,7 +25,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("TelaLogin.fxml"));
         stage.getIcons().add(new Image("file:./src/com/jm/ui/icons/logo.png"));
         Scene scene = new Scene(root);
-        scene.getStylesheets().add("file:./src/com/jm/ui/temaAzul.css");
+        //scene.getStylesheets().add("file:./src/com/jm/ui/temaAzul.css");
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
